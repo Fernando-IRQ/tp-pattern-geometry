@@ -7,6 +7,7 @@ public class Point implements Geometry{
 	public Point() {
 		this.coordinate = new Coordinate();
 	}
+	
 	public Point(Coordinate coordinate) {
 		this.coordinate = coordinate;
 	}
@@ -14,13 +15,23 @@ public class Point implements Geometry{
 	public Coordinate getCoordinate() {
 		return this.coordinate;
 	}
+	
 	@Override
 	public String getType() {
-		// TODO Auto-generated method stub
 		return "Point";
 	}
 	
-	public Coordinate getCoordinate() {
-		return coordinate;
+	@Override
+	public boolean isEmpty() {
+		return coordinate.isEmpty();
 	}
+	
+	@Override
+	public void translate(double dx, double dy) {
+		
+	this.coordinate = new Coordinate(dx+this.coordinate.getX(),dy+this.coordinate.getY());
+	
+	}
+	
+
 }

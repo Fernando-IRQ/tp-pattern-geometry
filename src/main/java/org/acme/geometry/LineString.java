@@ -14,18 +14,35 @@ public class LineString implements Geometry {
 	public LineString(List<Point> points) {
 		
 	}
+	
 	public int getNumPoints() {
-		return 0;
+		return points.size();
 		
 	}
 	
 	public Point getPointN(int n) {
-		return null;
-		
+		return points.get(n);
 	}
 	
 	@Override
 	public String getType() {
 		return "LineString";
 	}
-}
+
+	@Override
+	public boolean isEmpty() {
+		return points.isEmpty();
+	}
+
+	@Override
+	public void translate(double dx, double dy) {
+		// TODO Auto-generated method stub
+		
+	}
+
+//	@Override
+//	public void translate(double dx, double dy) {
+//		for(Point point : points) {
+//			Coordinate newcoord = new Coordinate(dx+point.getCoordinate().getX(),dy+point.getCoordinate().getY());			
+//		}
+	}
