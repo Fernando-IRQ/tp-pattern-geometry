@@ -12,7 +12,7 @@ public class LineString implements Geometry {
 	}
 	
 	public LineString(List<Point> points) {
-		
+		this.points = points;
 	}
 	
 	public int getNumPoints() {
@@ -36,13 +36,23 @@ public class LineString implements Geometry {
 
 	@Override
 	public void translate(double dx, double dy) {
-		// TODO Auto-generated method stub
+		for(Point point : points) {
+			point = new Point(new Coordinate(dx + point.getCoordinate().getX(),dy + point.getCoordinate().getY()));
+		}
+	}
+	
+	@Override
+	public LineString clone(){
 		
+		List<Point> newPoints = new ArrayList<>();
+		// clone de chaque points
+		
+		for(Point point : this.points) {
+			newPoints.add(point.clone());
+		}
+		
+		LineString newLinestring = new LineString(newPoints);
+						
+		return newLinestring;
 	}
-
-//	@Override
-//	public void translate(double dx, double dy) {
-//		for(Point point : points) {
-//			Coordinate newcoord = new Coordinate(dx+point.getCoordinate().getX(),dy+point.getCoordinate().getY());			
-//		}
-	}
+}
