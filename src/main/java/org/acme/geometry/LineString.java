@@ -55,4 +55,6 @@ public class LineString implements Geometry {
 						
 		return newLinestring;
 	}
+	
+	
 }
