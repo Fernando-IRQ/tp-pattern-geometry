@@ -43,5 +43,11 @@ public class Point implements Geometry{
 		 Envelope envelope = new Envelope(coordinate, coordinate);
 	        return envelope;
 	}
-
+	
+	@Override
+	public void accept(GeometryVisitor visitor) {
+		
+		visitor.visit(this);
+		
+	}
 }
