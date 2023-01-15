@@ -13,10 +13,13 @@ public class GeometryFactory {
     }
 
     public static LineString createLineString(){
+    	
         List<Point> points = new ArrayList<>();
+        
         Point p1 = new Point(new Coordinate(1.0,1.0));
+        
         for (int i = 0; i < 5; i++) {
-            points.add(new Point(new Coordinate(p1.getCoordinate().getX()+1, p1.getCoordinate().getY()+1)));
+            points.add(new Point(new Coordinate(p1.getCoordinate().getX()+i, p1.getCoordinate().getY()+i)));
         }
         return new LineString(points) ;
     }

@@ -38,4 +38,10 @@ public class Point implements Geometry{
 		return new Point(this.coordinate);
 	}
 
+	@Override
+	public Envelope getEnvelope() {
+		 Envelope envelope = new Envelope(coordinate, coordinate);
+	        return envelope;
+	}
+
 }
